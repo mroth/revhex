@@ -3,20 +3,27 @@
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/mroth/revhex)](https://pkg.go.dev/github.com/mroth/revhex)
 
 Go module that implements *reverse hexadecimal* encoding and decoding, as used
-in the [Jujutsu version control system](https://jj-vcs.github.io/jj/latest/).
+in the [Jujutsu version control system](https://jj-vcs.github.io/jj/).
 
 The reverse hex format is normal 16-base hexadecimal encoding but using `z-k` as
 the alphabet instead of `0-9a-f`.
 
 ```go
+import (
+	"encoding/hex"
+	"fmt"
+
+	"github.com/mroth/revhex"
+)
+
 func Example() {
-	sample := []byte{187, 132, 192, 163, 222, 186, 197, 248}
-	fmt.Println("hex:    ", hex.EncodeToString(sample))
-	fmt.Println("revhex: ", revhex.EncodeToString(sample))
+	src := []byte("Hello!")
+	fmt.Println("hex:    ", hex.EncodeToString(src))
+	fmt.Println("revhex: ", revhex.EncodeToString(src))
 
 	// Output:
-	// hex:     bb84c0a3debac5f8
-	// revhex:  oorvnzpwmlopnukr
+	// hex:     48656c6c6f21
+	// revhex:  vrtutntntkxy
 }
 ```
 

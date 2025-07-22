@@ -59,13 +59,11 @@ func ExampleEncodeToString() {
 }
 
 func Example() {
-	sample := []byte{187, 132, 192, 163, 222, 186, 197, 248}
-	fmt.Println("bytes:  ", sample)
-	fmt.Println("hex:    ", hex.EncodeToString(sample))
-	fmt.Println("revhex: ", revhex.EncodeToString(sample))
+	src := []byte("Hello!")
+	fmt.Println("hex:    ", hex.EncodeToString(src))
+	fmt.Println("revhex: ", revhex.EncodeToString(src))
 
 	// Output:
-	// bytes:   [187 132 192 163 222 186 197 248]
-	// hex:     bb84c0a3debac5f8
-	// revhex:  oorvnzpwmlopnukr
+	// hex:     48656c6c6f21
+	// revhex:  vrtutntntkxy
 }
